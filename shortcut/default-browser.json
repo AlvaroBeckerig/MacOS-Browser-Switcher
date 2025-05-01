@@ -1,0 +1,310 @@
+{
+   "WFWorkflowMinimumClientVersionString": "900",
+   "WFWorkflowMinimumClientVersion": 900,
+   "WFWorkflowIcon": {
+      "WFWorkflowIconStartColor": 2071128575,
+      "WFWorkflowIconGlyphNumber": 62034
+   },
+   "WFWorkflowClientVersion": "3514.0.4.200",
+   "WFWorkflowOutputContentItemClasses": [],
+   "WFWorkflowHasOutputFallback": false,
+   "WFWorkflowActions": [
+      {
+         "WFWorkflowActionIdentifier": "com.sindresorhus.Actions.GetBatteryStateIntent",
+         "WFWorkflowActionParameters": {
+            "state": "unplugged",
+            "UUID": "99C38956-7BEF-49A1-B8C2-D40AD03E026A",
+            "AppIntentDescriptor": {
+               "TeamIdentifier": "YG56YK5RN5",
+               "BundleIdentifier": "com.sindresorhus.Actions",
+               "Name": "Actions",
+               "AppIntentIdentifier": "GetBatteryStateIntent"
+            }
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Type": "Variable",
+               "Variable": {
+                  "Value": {
+                     "OutputUUID": "99C38956-7BEF-49A1-B8C2-D40AD03E026A",
+                     "Type": "ActionOutput",
+                     "OutputName": "Battery State"
+                  },
+                  "WFSerializationType": "WFTextTokenAttachment"
+               }
+            },
+            "WFControlFlowMode": 0,
+            "WFConditionalActionString": "unplugged",
+            "GroupingIdentifier": "80051F02-5308-4210-912C-72345E2AE9A3",
+            "WFCondition": 4
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.runshellscript",
+         "WFWorkflowActionParameters": {
+            "InputMode": "to stdin",
+            "Shell": "/bin/bash",
+            "UUID": "05AEB759-9707-4475-9BC9-390A69F59C74",
+            "Script": "/opt/homebrew/bin/defaultbrowser"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.text.replace",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Value": {
+                  "string": "\uFFFC",
+                  "attachmentsByRange": {
+                     "{0, 1}": {
+                        "OutputUUID": "05AEB759-9707-4475-9BC9-390A69F59C74",
+                        "Type": "ActionOutput",
+                        "OutputName": "Resultado do Script de Shell"
+                     }
+                  }
+               },
+               "WFSerializationType": "WFTextTokenString"
+            },
+            "WFReplaceTextReplace": "",
+            "UUID": "7A893BD3-C034-4EFA-B1FF-D736314E2F91",
+            "WFReplaceTextFind": "*"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.text.split",
+         "WFWorkflowActionParameters": {
+            "text": {
+               "Value": {
+                  "OutputUUID": "7A893BD3-C034-4EFA-B1FF-D736314E2F91",
+                  "Type": "ActionOutput",
+                  "OutputName": "Texto Atualizado"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            },
+            "UUID": "FCEEA1E5-9D39-4530-B2E4-5D0CC5CE1F58"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Value": {
+                  "OutputUUID": "FCEEA1E5-9D39-4530-B2E4-5D0CC5CE1F58",
+                  "Type": "ActionOutput",
+                  "OutputName": "Dividir Texto"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            },
+            "WFVariableName": "browsers"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefromlist",
+         "WFWorkflowActionParameters": {
+            "WFChooseFromListActionPrompt": "Unplugged: which browser will you use now?",
+            "WFInput": {
+               "Value": {
+                  "VariableName": "browsers",
+                  "Type": "Variable"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            },
+            "UUID": "2A676F33-70F8-400E-9955-0648C80A7F90"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Value": {
+                  "OutputUUID": "2A676F33-70F8-400E-9955-0648C80A7F90",
+                  "Type": "ActionOutput",
+                  "OutputName": "Item Selecionado"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            },
+            "WFVariableName": "browser"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.runshellscript",
+         "WFWorkflowActionParameters": {
+            "InputMode": "to stdin",
+            "Shell": "/bin/bash",
+            "UUID": "636EA6BE-A1B8-4CCF-AF64-AD5DB03BF822",
+            "Script": {
+               "Value": {
+                  "string": "/opt/homebrew/bin/defaultbrowser \uFFFC",
+                  "attachmentsByRange": {
+                     "{33, 1}": {
+                        "VariableName": "browser",
+                        "Type": "Variable"
+                     }
+                  }
+               },
+               "WFSerializationType": "WFTextTokenString"
+            },
+            "RunAsRoot": {
+               "Value": {
+                  "VariableName": "browser",
+                  "Type": "Variable"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            }
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+         "WFWorkflowActionParameters": {
+            "GroupingIdentifier": "80051F02-5308-4210-912C-72345E2AE9A3",
+            "WFControlFlowMode": 1
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.runshellscript",
+         "WFWorkflowActionParameters": {
+            "InputMode": "to stdin",
+            "Shell": "/bin/bash",
+            "UUID": "B495C122-DD73-4322-938F-9E3AE0CA423B",
+            "Script": "/opt/homebrew/bin/defaultbrowser"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.text.replace",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Value": {
+                  "string": "\uFFFC",
+                  "attachmentsByRange": {
+                     "{0, 1}": {
+                        "OutputUUID": "B495C122-DD73-4322-938F-9E3AE0CA423B",
+                        "Type": "ActionOutput",
+                        "OutputName": "Resultado do Script de Shell"
+                     }
+                  }
+               },
+               "WFSerializationType": "WFTextTokenString"
+            },
+            "WFReplaceTextFind": "*",
+            "UUID": "320308A4-4F57-453B-BEE2-CE9B5F7F5862"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.text.split",
+         "WFWorkflowActionParameters": {
+            "text": {
+               "Value": {
+                  "OutputUUID": "320308A4-4F57-453B-BEE2-CE9B5F7F5862",
+                  "Type": "ActionOutput",
+                  "OutputName": "Texto Atualizado"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            },
+            "UUID": "AD60530E-2424-4E30-BD03-8549DC95362F"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Value": {
+                  "OutputUUID": "AD60530E-2424-4E30-BD03-8549DC95362F",
+                  "Type": "ActionOutput",
+                  "OutputName": "Dividir Texto"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            },
+            "WFVariableName": "browsers"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefromlist",
+         "WFWorkflowActionParameters": {
+            "WFChooseFromListActionPrompt": "Plugged-in: which browser will you use now?",
+            "WFInput": {
+               "Value": {
+                  "VariableName": "browsers",
+                  "Type": "Variable"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            },
+            "UUID": "D7603F63-F7AF-4474-A74E-177B180E2940"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Value": {
+                  "OutputUUID": "D7603F63-F7AF-4474-A74E-177B180E2940",
+                  "Type": "ActionOutput",
+                  "OutputName": "Item Selecionado"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            },
+            "WFVariableName": "browser"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.runshellscript",
+         "WFWorkflowActionParameters": {
+            "InputMode": "to stdin",
+            "Shell": "/bin/bash",
+            "UUID": "E7D3A420-5EE7-430F-BBFA-22EE50F8BBDC",
+            "Script": {
+               "Value": {
+                  "string": "/opt/homebrew/bin/defaultbrowser \uFFFC",
+                  "attachmentsByRange": {
+                     "{33, 1}": {
+                        "VariableName": "browser",
+                        "Type": "Variable"
+                     }
+                  }
+               },
+               "WFSerializationType": "WFTextTokenString"
+            },
+            "RunAsRoot": {
+               "Value": {
+                  "VariableName": "browser",
+                  "Type": "Variable"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            }
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+         "WFWorkflowActionParameters": {
+            "WFControlFlowMode": 2,
+            "GroupingIdentifier": "80051F02-5308-4210-912C-72345E2AE9A3",
+            "UUID": "88132AE9-FCFA-49B7-A5E7-E87E4477E57C"
+         }
+      }
+   ],
+   "WFWorkflowInputContentItemClasses": [
+      "WFAppStoreAppContentItem",
+      "WFArticleContentItem",
+      "WFContactContentItem",
+      "WFDateContentItem",
+      "WFEmailAddressContentItem",
+      "WFFolderContentItem",
+      "WFGenericFileContentItem",
+      "WFImageContentItem",
+      "WFiTunesProductContentItem",
+      "WFLocationContentItem",
+      "WFDCMapsLinkContentItem",
+      "WFAVAssetContentItem",
+      "WFPDFContentItem",
+      "WFPhoneNumberContentItem",
+      "WFRichTextContentItem",
+      "WFSafariWebPageContentItem",
+      "WFStringContentItem",
+      "WFURLContentItem"
+   ],
+   "WFWorkflowImportQuestions": [],
+   "WFWorkflowTypes": [],
+   "WFQuickActionSurfaces": [],
+   "WFWorkflowHasShortcutInputVariables": false
+}
