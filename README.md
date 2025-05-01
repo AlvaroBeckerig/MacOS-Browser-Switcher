@@ -78,7 +78,7 @@ Enjoy your automatic browser switching! 🚀
 
 You can download the shortcut in two formats:
 
-1. `.shortcut` file: [Default Browser.shortcut](shortcut/default-browser.shortcut)
+1. `.shortcut` file: [default-browser.shortcut](shortcut/default-browser.shortcut)
 
    - Direct import into the Shortcuts app;
    - Recommended for most users.
