@@ -78,11 +78,10 @@ Enjoy your automatic browser switching! 🚀
 
 You can download the shortcut in two formats:
 
-1. `.shortcut` file: [Default Browser.shortcut](shortcut/Default%20Browser.shortcut)
+1. `.shortcut` file: [Default Browser.shortcut](shortcut/default-browser.shortcut)
 
-   - Direct import into the Shortcuts app
-   - Recommended for most users
-2. `.plist` file: [default-browser-changer.plist](shortcut/default-browser-changer.plist)
+   - Direct import into the Shortcuts app;
+   - Recommended for most users.
+2. `.json` file: [default-browser-changer.plist](shortcut/default-browser.json)
 
-   - Raw plist format
-   - Useful for developers or manual modifications
+   - Useful for developers or manual modifications.
