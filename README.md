@@ -82,6 +82,6 @@ You can download the shortcut in two formats:
 
    - Direct import into the Shortcuts app;
    - Recommended for most users.
-2. `.json` file: [default-browser-changer.plist](shortcut/default-browser.json)
+2. `.json` file: [default-browser-changer.json](shortcut/default-browser.json)
 
    - Useful for developers or manual modifications.
