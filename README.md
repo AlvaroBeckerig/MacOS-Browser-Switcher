@@ -1,4 +1,4 @@
-# Default Browser Switcher Shortcut
+# Default Browser Switcher Shortcut for MacOS
 
 ![](assets/browser-switcher.png)
 
@@ -44,13 +44,11 @@ Make sure you have the following installed and configured:
    ```
 
    For more information, visit: [https://brew.sh/](https://brew.sh/)
-
 4. Install `defaultbrowser` using Homebrew:
 
    ```bash
    brew install defaultbrowser
    ```
-
 5. Confirm that `/opt/homebrew/bin/defaultbrowser` exists and is executable.
 6. Run the shortcut!
 
