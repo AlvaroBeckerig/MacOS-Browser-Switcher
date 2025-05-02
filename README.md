@@ -10,7 +10,7 @@ This shortcut was designed to help MacBook users optimize their battery life by 
 
 ## How it works
 
-1. Checks your battery state using the [Actions](https://apps.apple.com/app/id1586435171) app by [Sindre Sorhus](https://github.com/sindresorhushttps:/).
+1. Checks your battery state using the [Actions](https://apps.apple.com/app/id1586435171) app by [Sindre Sorhus](https://github.com/sindresorhus).
 2. If your Mac **is not charging** (`unplugged`):
 
    - Shows a list of available browsers;
@@ -30,14 +30,14 @@ This shortcut was designed to help MacBook users optimize their battery life by 
    /opt/homebrew/bin/defaultbrowser <selected-browser>
    ```
 
-## Key Features
+## Key features
 
 - Dynamic browser selection for both charging and non-charging states;
 - Lists all available browsers installed on your system;
 - Remembers your last selection for each power state;
 - Supports any browser that can be set as default on macOS.
 
-## Installation & Usage Options
+## Installation & usage options
 
 There are 9 three ways to install and use the Default Browser Switcher Shortcut. Choose the one that best fits your workflow:
 
@@ -110,7 +110,7 @@ Feel free to modify the shell script or the shortcut to fit your browser prefere
 
 Enjoy your automatic browser switching! 🚀
 
-## Shortcut Download Options
+## Shortcut download options
 
 You can download the shortcut in two formats:
 
