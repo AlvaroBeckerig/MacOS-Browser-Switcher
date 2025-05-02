@@ -37,36 +37,72 @@ This shortcut was designed to help MacBook users optimize their battery life by 
 - Remembers your last selection for each power state;
 - Supports any browser that can be set as default on macOS.
 
+## Installation & Usage Options
+
+There are 9 three ways to install and use the Default Browser Switcher Shortcut. Choose the one that best fits your workflow:
+
+### Download and install the shortcut
+
+- Download the `.shortcut` file: [default-browser.shortcut](shortcut/default-browser.shortcut) and install it.
+
+### Usage
+
+#### Option 1 (Recommended and free): Hammerspoon Integration
+
+- The script is located at: `install/hammerspoon/init.lua`
+- **How to use:**
+  1. Install [Hammerspoon](https://www.hammerspoon.org/) (free);
+  2. Copy the `init.lua` file to your Hammerspoon configuration directory (`~/.hammerspoon/`);
+  3. Reload Hammerspoon or restart the app;
+  4. Use the provided shortcut or customize your own trigger in Hammerspoon.
+
+#### Option 2: BetterTouchTool (BTT) Template
+
+- The template is available at: `install/btt/default_browser`
+- **How to use:**
+  1. Install [BetterTouchTool](https://folivora.ai/) (paid);
+  2. Import the template from the `install/btt/default_browser.bttpreset` directory.
+
+#### Option 3: Ninja mode - Standalone Shell Script Utility
+
+- Download the utility: `/install/agent/default_browser.zip`
+- **How to use:**
+  1. Unzip the file;
+  2. Open MacOS Terminal and navigate to the zip file directory;
+  3. Make the installer executable:
+     ```bash
+     chmod +x install.sh uninstall.sh
+     ```
+  4. Run the installer to set up your new MacOS agent:
+     ```bash
+     ./install.sh
+     ```
+  5. To uninstall, run the uninstall script provided in the same directory:
+     ```bash
+     ./uninstall.sh
+     ```
+
+---
+
 ## Dependencies
 
-Make sure you have the following installed and configured:
+Depending on your chosen installation method, you may need to install one or more of the following:
 
-- [Actions app](https://apps.apple.com/app/id1586435171) (free) by Sindre Sorhus;
-- [`defaultbrowser`](https://github.com/kerma/defaultbrowser) CLI tool installed at `/opt/homebrew/bin/defaultbrowser`.
+**REQUIRED:**
+
+- [Actions app](https://apps.apple.com/app/id1586435171) (required for battery status detection)
+- [`defaultbrowser`](https://github.com/kerma/defaultbrowser) CLI tool (required for all options)
+
+**OPTIONAL**:
+
+- [Hammerspoon](https://www.hammerspoon.org/) (optional, for Option 1)
+- [BetterTouchTool](https://folivora.ai/) (optional, for Option 2)
 
 ## Notes
 
-- Tested with the Actions app version`3.7.0`.
-
-## Installation
-
-1. Import the shortcut via [iCloud link](https://www.icloud.com/shortcuts/9fc399a1ea2e4ab6a9580ac72649442d) or `.shortcut` file;
-2. Install [Actions app](https://apps.apple.com/app/id1586435171);
-3. Grant permissions when prompted;
-4. Install Homebrew (if you haven't already):
-
-   ```bash
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-   ```
-
-   For more information, visit: [https://brew.sh/](https://brew.sh/)
-5. Install `defaultbrowser` using Homebrew:
-
-   ```bash
-   brew install defaultbrowser
-   ```
-6. Confirm that `/opt/homebrew/bin/defaultbrowser` exists and is executable;
-7. Run the shortcut!
+- All options support dynamic browser switching based on your Mac's charging status;
+- You can freely modify the scripts or templates to fit your preferences or workflow;
+- For advanced users, the standalone agent can be installed or removed at any time using the provided shell scripts.
 
 ---
 
@@ -74,7 +110,7 @@ Feel free to modify the shell script or the shortcut to fit your browser prefere
 
 Enjoy your automatic browser switching! 🚀
 
-## Download Options
+## Shortcut Download Options
 
 You can download the shortcut in two formats:
 
