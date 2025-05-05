@@ -39,7 +39,7 @@ This shortcut was designed to help MacBook users optimize their battery life by 
 
 ## Installation & usage options
 
-There are 9 three ways to install and use the Default Browser Switcher Shortcut. Choose the one that best fits your workflow:
+There are three ways to install and use the Default Browser Switcher Shortcut. Choose the one that best fits your workflow:
 
 ### Download and install the shortcut
 
